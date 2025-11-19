@@ -25,7 +25,7 @@ METHOD if_oo_adt_classrun~main.
 
     TRY.
         lt_header = VALUE #( (  order_uuid  = cl_system_uuid=>create_uuid_x16_static( )
-                                id           = '1'
+                                orderid      = '11111'
                                 email        = 'vvalencia@gmail.com'
                                 firstname    = 'Victor'
                                 lastname     = 'Valencia'
@@ -90,7 +90,7 @@ METHOD if_oo_adt_classrun~main.
         RETURN.
     ENDTRY.
 
-    INSERT ztheader_0677_a FROM TABLE @lt_header.
+*    INSERT ztheader_0677_a FROM TABLE @lt_header.
     IF sy-subrc NE 0.
       RETURN.
     ENDIF.
@@ -106,7 +106,7 @@ METHOD if_oo_adt_classrun~main.
 
           INSERT VALUE #( item_uuid        = cl_system_uuid=>create_uuid_x16_static( )
                           order_uuid       = <ls_header>-order_uuid
-                          id               = 1
+                          id               = 11111
                           name             = 'Round  chrome watering can'
                           description      = 'Aqua Nuova round chrome watering can'
                           releasedate      = cl_abap_context_info=>get_system_date( )
@@ -122,7 +122,7 @@ METHOD if_oo_adt_classrun~main.
 
           INSERT VALUE #( item_uuid        = cl_system_uuid=>create_uuid_x16_static( )
                           order_uuid       = <ls_header>-order_uuid
-                          id               = 2
+                          id               = 22222
                           name             = 'Bathroom sink faucet'
                           description      = 'Chrome single-lever basin tap'
                           releasedate      = cl_abap_context_info=>get_system_date( )
@@ -138,7 +138,7 @@ METHOD if_oo_adt_classrun~main.
 
           INSERT VALUE #( item_uuid        = cl_system_uuid=>create_uuid_x16_static( )
                           order_uuid       = <ls_header>-order_uuid
-                          id               = 3
+                          id               = 333333
                           name             = 'Blackout curtain'
                           description      = 'Blue color'
                           releasedate      = cl_abap_context_info=>get_system_date( )
@@ -154,7 +154,7 @@ METHOD if_oo_adt_classrun~main.
 
           INSERT VALUE #( item_uuid        = cl_system_uuid=>create_uuid_x16_static( )
                           order_uuid       = <ls_header>-order_uuid
-                          id               = 4
+                          id               = 44444
                           name             = 'Chenille Rug'
                           description      = 'light beige color'
                           releasedate      = cl_abap_context_info=>get_system_date( )
@@ -175,7 +175,7 @@ METHOD if_oo_adt_classrun~main.
         RETURN.
     ENDTRY.
 
-    INSERT ztitems_0677_a FROM TABLE @lt_items.
+*    INSERT ztitems_0677_a FROM TABLE @lt_items.
     IF sy-subrc NE 0.
       RETURN.
     ENDIF.

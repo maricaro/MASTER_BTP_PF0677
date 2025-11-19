@@ -3,7 +3,7 @@ strict ( 2 );
 with draft;
 
 define behavior for ZHEADER_R_0677 alias Header
-implementation in class zbp_t_r_header_0677 unique
+implementation in class zbp_header_r_0677 unique
 persistent table ztheader_0677_a
 draft table ztheader_0677_d
 lock master
@@ -74,7 +74,7 @@ authorization master ( instance, global )
 }
 
 define behavior for ZITEMS_R_0677 alias Items
-implementation in class zbp_t_r_items_0677 unique
+implementation in class zbp_items_r_0677 unique
 persistent table ztitems_0677_a
 draft table ztitems_0677_d
 lock dependent by _Header
