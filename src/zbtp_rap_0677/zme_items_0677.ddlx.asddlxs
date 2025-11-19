@@ -1,0 +1,89 @@
+@Metadata.layer: #CORE
+
+@UI:{ headerInfo: {
+                    typeName: 'Item',
+                    typeNamePlural: 'Items',
+           title: {
+                    type: #STANDARD,
+                    label: 'ID',
+                    value: 'ItemID'},
+     description: {
+                    type: #STANDARD,
+                    label: 'Name',
+                    value: 'Description'}
+                  }
+     }
+                       
+annotate entity ZITEMS_C_0677
+    with 
+{
+
+  @UI.facet: [{id: 'Items',
+              position: 10,
+              label: 'Items',
+              type: #IDENTIFICATION_REFERENCE}]
+              
+  @UI.hidden: true
+  ItemUUID;
+  
+  @UI.hidden: true
+  OrderUUID;
+  
+  @UI: { lineItem: [{  position:  10, importance:  #HIGH}],
+         identification: [{ position: 10 }],
+         selectionField: [{ position: 10 }] }
+  ItemID;
+  
+  @UI: { lineItem: [{  position:  20, importance:  #HIGH}],
+     identification: [{ position: 20 }],
+     selectionField: [{ position: 20 }] }
+  Name;
+  
+  @UI: { lineItem: [{  position:  30, importance:  #HIGH}],
+     identification: [{ position: 30 }],
+     selectionField: [{ position: 30 }] }
+  Description;
+     
+  @UI: { lineItem: [{  position:  40, importance:  #HIGH}],
+     identification: [{ position: 40 }],
+     selectionField: [{ position: 40 }] }
+  ReleaseDate;
+       
+  @UI: { lineItem: [{  position:  50, importance:  #HIGH}],
+   identification: [{ position: 50 }],
+   selectionField: [{ position: 50 }] }
+  DiscontinuedDate;
+         
+  @UI: { lineItem: [{  position:  60, importance:  #HIGH}],
+   identification: [{ position: 60 }] }
+  Price;
+  
+  @UI.hidden: true
+  CurrencyCode;
+  
+  @UI: { lineItem: [{  position:  90, importance:  #LOW}],
+  identification: [{ position: 90 }]}
+  Height;
+  
+  @UI: { lineItem: [{  position:  100, importance:  #LOW}],
+   identification: [{ position: 100 }]}
+  Width;
+  
+  @UI: { lineItem: [{  position:  110, importance:  #LOW}],
+   identification: [{ position: 110 }]}
+  Depth;
+  
+  @UI: { lineItem: [{  position:  120, importance:  #LOW}],
+   identification: [{ position: 120 }]}
+  Quantity;
+  
+  @UI.hidden: true
+//  @UI: { lineItem: [{  position:  80, importance:  #LOW}],
+//   identification: [{ position: 80 }]}
+  UnitOfMeasure;
+  
+  
+  @UI.hidden: true
+  LocalLastChangedAt;  
+    
+}
