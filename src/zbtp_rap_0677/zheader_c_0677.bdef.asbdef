@@ -1,0 +1,30 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZHEADER_C_0677 alias Header
+{
+  use create;
+  use update;
+  use delete;
+
+  use action acceptSO;
+  use action rejectSO;
+  use action validDateRange;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _Items { create; with draft; }
+}
+
+define behavior for ZITEMS_C_0677 alias Items
+{
+  use update;
+  use delete;
+
+  use association _Header { with draft; }
+}
