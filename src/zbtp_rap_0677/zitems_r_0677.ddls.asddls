@@ -14,19 +14,17 @@ as select from ztitems_0677_a
 
   association to parent ZHEADER_R_0677  as _Header on $projection.OrderUUID = _Header.OrderUUID
   
-  association [1..1] to I_UnitOfMeasureStdVH as _Unit on $projection.UnitOfMeasure = _Unit.UnitOfMeasure
-  
 {
   key item_uuid             as ItemUUID,
       order_uuid            as OrderUUID,
-      id                    as ItemID,
+      id                    as Id,
       name                  as Name,
       description           as Description,
       releasedate           as ReleaseDate,
       discontinueddate      as DiscontinuedDate,
-      @Semantics.amount.currencyCode: 'CurrencyCode'
+      @Semantics.amount.currencyCode: 'Currency'
       price                 as Price,
-      currency              as CurrencyCode,
+      currency              as Currency, //CurrencyCode,
       @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'
       height                as Height,
       @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'
@@ -40,6 +38,6 @@ as select from ztitems_0677_a
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       local_last_changed_at as LocalLastChangedAt,
 
-     _Header,
-     _Unit
+     _Header
+ 
 }

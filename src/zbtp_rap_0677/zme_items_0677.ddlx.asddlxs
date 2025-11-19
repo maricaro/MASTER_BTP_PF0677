@@ -6,7 +6,7 @@
            title: {
                     type: #STANDARD,
                     label: 'ID',
-                    value: 'ItemID'},
+                    value: 'Id'},
      description: {
                     type: #STANDARD,
                     label: 'Name',
@@ -32,7 +32,7 @@ annotate entity ZITEMS_C_0677
   @UI: { lineItem: [{  position:  10, importance:  #HIGH}],
          identification: [{ position: 10 }],
          selectionField: [{ position: 10 }] }
-  ItemID;
+  Id;
   
   @UI: { lineItem: [{  position:  20, importance:  #HIGH}],
      identification: [{ position: 20 }],
@@ -59,7 +59,7 @@ annotate entity ZITEMS_C_0677
   Price;
   
   @UI.hidden: true
-  CurrencyCode;
+  Currency;
   
   @UI: { lineItem: [{  position:  90, importance:  #LOW}],
   identification: [{ position: 90 }]}

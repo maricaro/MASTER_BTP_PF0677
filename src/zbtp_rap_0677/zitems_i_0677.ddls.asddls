@@ -6,14 +6,14 @@ as projection on ZITEMS_R_0677
 {
     key ItemUUID,
     OrderUUID,
-    ItemID,
+    Id,
     Name,
     Description,
     ReleaseDate,
     DiscontinuedDate,
-    @Semantics.amount.currencyCode: 'CurrencyCode'
+    @Semantics.amount.currencyCode: 'Currency'
     Price,
-    CurrencyCode,
+    Currency,
     @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'
     Height,
     @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'

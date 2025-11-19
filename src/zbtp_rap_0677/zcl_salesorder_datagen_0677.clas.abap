@@ -90,7 +90,7 @@ METHOD if_oo_adt_classrun~main.
         RETURN.
     ENDTRY.
 
-*    INSERT ztheader_0677_a FROM TABLE @lt_header.
+    INSERT ztheader_0677_a FROM TABLE @lt_header.
     IF sy-subrc NE 0.
       RETURN.
     ENDIF.
@@ -175,7 +175,7 @@ METHOD if_oo_adt_classrun~main.
         RETURN.
     ENDTRY.
 
-*    INSERT ztitems_0677_a FROM TABLE @lt_items.
+    INSERT ztitems_0677_a FROM TABLE @lt_items.
     IF sy-subrc NE 0.
       RETURN.
     ENDIF.

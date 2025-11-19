@@ -13,7 +13,7 @@ define view entity ZITEMS_C_0677
       OrderUUID,
       
       @Search.defaultSearchElement: true
-      ItemID,
+      Id,
       
       @Search.defaultSearchElement: true
       Name,
@@ -25,13 +25,13 @@ define view entity ZITEMS_C_0677
       @Search.defaultSearchElement: true
       DiscontinuedDate,
       
-      @Semantics.amount.currencyCode: 'CurrencyCode'
+     @Semantics.amount.currencyCode: 'Currency'
       Price,
 
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CurrencyStdVH',
                                                      element: 'Currency' },
                                            useForValidation: true }]
-      CurrencyCode,
+      Currency,
 
       @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'
       Height,

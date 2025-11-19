@@ -1,0 +1,114 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for ZHEADER_R_0677 alias Header
+implementation in class zbp_t_r_header_0677 unique
+persistent table ztheader_0677_a
+draft table ztheader_0677_d
+lock master
+total etag LastChangedAt
+etag master LocalLastChangedAt
+authorization master ( instance, global )
+{
+
+  create ( precheck );
+  update ( precheck );
+  delete;
+  association _Items { create (  features : instance, authorization : update ); with draft; }
+
+  field ( readonly, numbering : managed ) OrderUUID;
+  field ( readonly) OrderID, Orderstatus, LocalCreatedAt, LocalCreatedBy, LocalLastChangedAt, LocalLastChangedBy;
+  field ( mandatory ) Email;
+  field ( features : instance) Firstname, Lastname, Email, CreateOn, Country, Deliverydate;
+
+  determination setIdNumber on save { create; }
+  determination setStatusToOpen on modify { create; }
+
+  action (features : instance, authorization : update ) acceptSO result [1] $self;
+  action (features : instance, authorization : update ) rejectSO result [1] $self;
+
+  validation validateDates on save { create; field CreateOn, Deliverydate; }
+  validation validateCountry on save { create; field Country; }
+
+  determine action validDateRange {validation validateDates; }
+
+  side effects {
+    field Orderstatus affects field CreateOn, field Deliverydate;
+    determine action validDateRange executed on field CreateOn, field Deliverydate affects messages;
+  }
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume with additional implementation;
+
+  draft determine action Prepare{
+     validation validateDates;
+     validation validateCountry;
+
+     validation Items~validateCurrency;
+  }
+
+  mapping for ztheader_0677_a{
+
+    OrderUUID          =  order_uuid;
+    OrderID            =  orderid;
+    Email              =  email;
+    Firstname          =  firstname;
+    Lastname           =  lastname;
+    Country            =  country;
+    CreateOn           =  createon;
+    Deliverydate       =  deliverydate;
+    Orderstatus        =  orderstatus;
+    Imageurl           =  imageurl;
+    LocalCreatedBy     =  local_created_by;
+    LocalCreatedAt     =  local_created_at;
+    LocalLastChangedBy =  local_last_changed_by;
+    LocalLastChangedAt =  local_last_changed_at;
+    LastChangedAt      =  last_changed_at;
+
+
+  }
+
+}
+
+define behavior for ZITEMS_R_0677 alias Items
+implementation in class zbp_t_r_items_0677 unique
+persistent table ztitems_0677_a
+draft table ztitems_0677_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+{
+
+  update;
+  delete;
+  association _Header { with draft; }
+
+  field (numbering : managed, readonly ) ItemUUID;
+  field ( readonly ) Id, OrderUUID, LocalLastChangedAt;
+
+  determination setIdItems on save { create; }
+  validation validateCurrency on save { create; field Currency; }
+
+  mapping for ztitems_0677_a{
+    ItemUUID           = item_uuid;
+    OrderUUID          = order_uuid;
+    Id                 = id;
+    Name               = name;
+    Description        = description;
+    ReleaseDate        = releasedate;
+    DiscontinuedDate   = discontinueddate;
+    Price              = price;
+    Currency           = currency;
+    Height             = height;
+    Width              = width;
+    Depth              = depth;
+    Quantity           = quantity;
+    UnitOfMeasure      = unitofmeasure;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
+
+//

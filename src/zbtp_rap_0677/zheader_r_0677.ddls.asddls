@@ -13,7 +13,7 @@ as select from ztheader_0677_a
     
 {
    key order_uuid           as OrderUUID,
-      id                    as OrderID,
+      orderid               as OrderID,
       email                 as Email,
       firstname             as FirstName,
       lastname              as LastName,
@@ -47,6 +47,7 @@ as select from ztheader_0677_a
       
   // Make association public
       _Items,
-      _Status,
-      _Country
+      _Country,
+      _Status
+      
 }
