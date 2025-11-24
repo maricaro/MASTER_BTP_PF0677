@@ -34,9 +34,10 @@ as select from ztitems_0677_a
       quantity              as Quantity,
       unitofmeasure         as UnitOfMeasure,
 
-      //local ETag field
+      //Local ETag Field --> OData ETag
       @Semantics.systemDateTime.localInstanceLastChangedAt: true
       local_last_changed_at as LocalLastChangedAt,
+
 
      _Header
  

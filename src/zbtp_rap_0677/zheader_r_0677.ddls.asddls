@@ -17,7 +17,7 @@ as select from ztheader_0677_a
       email                 as Email,
       firstname             as FirstName,
       lastname              as LastName,
-      country               as Country,
+      country               as Country,    
       createon              as CreateOn,      
       deliverydate          as DeliveryDate,
       orderstatus           as OrderStatus,
