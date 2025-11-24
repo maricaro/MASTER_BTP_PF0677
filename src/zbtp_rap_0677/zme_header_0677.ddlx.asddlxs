@@ -35,6 +35,7 @@ annotate entity ZHEADER_C_0677
   OrderUUID;
 
   @UI: { lineItem: [{  position:  10, importance:  #HIGH},  
+  
                     {  type: #FOR_ACTION,
                        dataAction: 'acceptSO',
                        label: 'Accept SO',
@@ -45,7 +46,19 @@ annotate entity ZHEADER_C_0677
                        label: 'Reject SO',
                        position: 20 }],
          
-         identification: [{ position: 10 }],
+         identification: [{ position: 10, label: 'Order ID' },
+         
+                           { type: #FOR_ACTION,
+                             dataAction: 'acceptSO',
+                             label: 'Accept SO',
+                             position: 10 },
+                             
+                           { type: #FOR_ACTION,
+                             dataAction: 'rejectSO',
+                             label: 'Reject SO',
+                             position: 20 }         
+         ],
+         
          selectionField: [{ position: 10 }] }             
   OrderID;
 
@@ -64,7 +77,7 @@ annotate entity ZHEADER_C_0677
   LastName;
   
   @UI: { lineItem: [{  position:  50, importance:  #HIGH}],
-       identification: [{ position: 50 }],
+       identification: [{ position: 50 }] ,
        textArrangement: #TEXT_ONLY }
   Country;
   
@@ -80,8 +93,9 @@ annotate entity ZHEADER_C_0677
    
   @UI: { lineItem: [{  position:  70, importance:  #MEDIUM}],
          identification: [{ position: 70 }],
-         selectionField: [{ position: 60 }],
-         textArrangement: #TEXT_ONLY }
+         selectionField: [{ position: 60 }]
+        // textArrangement: #TEXT_ONLY 
+        }
   OrderStatus;
 
   @UI.hidden: true

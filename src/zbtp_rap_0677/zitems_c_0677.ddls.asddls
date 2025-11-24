@@ -27,12 +27,12 @@ define view entity ZITEMS_C_0677
       
      @Semantics.amount.currencyCode: 'Currency'
       Price,
-
+    
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CurrencyStdVH',
                                                      element: 'Currency' },
                                            useForValidation: true }]
       Currency,
-
+      
       @Semantics.quantity.unitOfMeasure: 'UnitOfMeasure'
       Height,
       
@@ -44,12 +44,12 @@ define view entity ZITEMS_C_0677
       
       Quantity,
       
-
-
       UnitOfMeasure,
       
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
       LocalLastChangedAt,
       
       /* Associations */
       _Header : redirected to parent ZHEADER_C_0677
+
 }

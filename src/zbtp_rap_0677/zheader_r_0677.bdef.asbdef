@@ -12,27 +12,34 @@ etag master LocalLastChangedAt
 authorization master ( instance, global )
 {
 
-  create ( precheck );
-  update ( precheck );
+  create; //( precheck ); //
+  update; //( precheck ); //
   delete;
   association _Items { create (  features : instance, authorization : update ); with draft; }
 
   field ( readonly, numbering : managed ) OrderUUID;
+
+  //Solo lectura
   field ( readonly) OrderID, Orderstatus, LocalCreatedAt, LocalCreatedBy, LocalLastChangedAt, LocalLastChangedBy;
+
+  //Obligatorio
   field ( mandatory ) Email;
   field ( features : instance) Firstname, Lastname, Email, CreateOn, Country, Deliverydate;
 
   determination setIdNumber on save { create; }
   determination setStatusToOpen on modify { create; }
 
+  //Botones
   action (features : instance, authorization : update ) acceptSO result [1] $self;
   action (features : instance, authorization : update ) rejectSO result [1] $self;
 
   validation validateDates on save { create; field CreateOn, Deliverydate; }
   validation validateCountry on save { create; field Country; }
 
+  //Método de la validación
   determine action validDateRange {validation validateDates; }
 
+  //Efectos alternos al ejecutar acción
   side effects {
     field Orderstatus affects field CreateOn, field Deliverydate;
     determine action validDateRange executed on field CreateOn, field Deliverydate affects messages;
@@ -43,6 +50,7 @@ authorization master ( instance, global )
   draft action Discard;
   draft action Resume with additional implementation;
 
+  //Acciones al manejar borrador
   draft determine action Prepare{
      validation validateDates;
      validation validateCountry;

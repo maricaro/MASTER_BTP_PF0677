@@ -24,8 +24,8 @@ as projection on ZHEADER_R_0677
                                       element: 'Country' },
                             useForValidation: true }] 
       @ObjectModel.text.element: [ 'CountryName' ]                           
-      Country,
-      _Country._Text.CountryName as CountryName : localized,
+      Country, 
+     _Country._Text.CountryName as CountryName : localized,
       
       @Search.defaultSearchElement: true
       CreateOn,
@@ -33,11 +33,11 @@ as projection on ZHEADER_R_0677
       @Search.defaultSearchElement: true
       DeliveryDate,         
  
-      
       @Consumption.valueHelpDefinition: [{ entity: { name: '/DMO/I_Overall_Status_VH',
-                                                     element: 'OverallStatus'},
+                                                     element: 'OverallStatus' },
                                            useForValidation: true }]
-      @ObjectModel.text.element: [ 'OrderStatusText' ]                                     
+      @ObjectModel.text.element: [ 'OrderstatusText' ]
+      @Search.defaultSearchElement: true                                   
       OrderStatus,
       _Status._Text.Text         as OrderStatusText : localized,
 

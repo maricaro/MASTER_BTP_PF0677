@@ -17,9 +17,11 @@ as projection on ZHEADER_R_0677
     ImageUrl,    
     
     //local ETag field -> OData ETag
+    @Semantics.systemDateTime.localInstanceLastChangedAt: true
     LocalLastChangedAt,
     
     //total ETag field   
+    @Semantics.systemDateTime.lastChangedAt: true
     LastChangedAt,
     
     /* Associations */
