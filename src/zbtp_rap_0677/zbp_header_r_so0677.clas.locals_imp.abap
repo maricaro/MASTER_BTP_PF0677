@@ -17,12 +17,6 @@ CLASS lhc_Header DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS get_global_authorizations FOR GLOBAL AUTHORIZATION
       IMPORTING REQUEST requested_authorizations FOR Header RESULT result.
 
-    "//"METHODS precheck_create FOR PRECHECK
-   "//"IMPORTING entities FOR CREATE Header.
-
-    "METHODS precheck_update FOR PRECHECK
-     " IMPORTING entities FOR UPDATE Header.
-
     METHODS acceptSO FOR MODIFY
       IMPORTING keys FOR ACTION Header~acceptSO RESULT result.
 
@@ -56,12 +50,6 @@ CLASS lhc_Header IMPLEMENTATION.
 
   METHOD get_global_authorizations.
   ENDMETHOD.
-
-  "METHOD precheck_create.
-  "ENDMETHOD.
-
-  "METHOD precheck_update.
-  "ENDMETHOD.
 
   METHOD acceptSO.
 
@@ -99,6 +87,7 @@ CLASS lhc_Header IMPLEMENTATION.
     result = VALUE #( FOR header IN headers ( %tky = header-%tky
                                               %param = header ) ).
 
+
   ENDMETHOD.
 
   METHOD Resume.
@@ -106,7 +95,7 @@ CLASS lhc_Header IMPLEMENTATION.
 
   METHOD setStatusToOpen.
 
-     READ ENTITIES OF zheader_r_0677 IN LOCAL MODE
+    READ ENTITIES OF zheader_r_0677 IN LOCAL MODE
     ENTITY Header
     FIELDS ( OrderStatus )
     WITH CORRESPONDING #( keys )
@@ -128,7 +117,7 @@ CLASS lhc_Header IMPLEMENTATION.
 
   METHOD setIdNumber.
 
-      READ ENTITIES OF zheader_r_0677 IN LOCAL MODE
+    READ ENTITIES OF zheader_r_0677 IN LOCAL MODE
     ENTITY Header
     FIELDS ( OrderID )
     WITH CORRESPONDING #( keys )
@@ -147,6 +136,7 @@ CLASS lhc_Header IMPLEMENTATION.
     UPDATE FIELDS ( orderid )
     WITH VALUE #( FOR header IN headers INDEX INTO i ( %tky = header-%tky
                                                        OrderID = max_id + i ) ).
+
 
 
   ENDMETHOD.

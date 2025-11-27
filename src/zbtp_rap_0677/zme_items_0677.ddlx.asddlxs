@@ -58,6 +58,10 @@ annotate entity ZITEMS_C_0677
    identification: [{ position: 60 }] }
   Price;
   
+  @UI: { lineItem: [{  position: 71, importance: #HIGH}],
+       identification: [{ position: 71 }]}
+  pricewithvat;  
+  
   @UI.hidden: true
   Currency;
   
@@ -78,8 +82,6 @@ annotate entity ZITEMS_C_0677
   Quantity;
   
   @UI.hidden: true
-//  @UI: { lineItem: [{  position:  80, importance:  #LOW}],
-//   identification: [{ position: 80 }]}
   UnitOfMeasure;
   
   
@@ -87,3 +89,5 @@ annotate entity ZITEMS_C_0677
   LocalLastChangedAt;  
     
 }
+
+//

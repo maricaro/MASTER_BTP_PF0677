@@ -16,7 +16,7 @@ as projection on ZHEADER_R_0677
       OrderID,
       Email, 
            
-      @Search.defaultSearchElement: true      
+     @Search.defaultSearchElement: true      
       FirstName,            
       LastName,
       

@@ -28,6 +28,12 @@ define view entity ZITEMS_C_0677
      @Semantics.amount.currencyCode: 'Currency'
       Price,
     
+      // Virtual element
+       @Semantics.amount.currencyCode: 'Currency'
+       @EndUserText.label: 'VAT Included'
+       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_VIR_ELEM_SADL_2137'
+       virtual PriceWithVAT : /dmo/total_price,   
+           
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CurrencyStdVH',
                                                      element: 'Currency' },
                                            useForValidation: true }]

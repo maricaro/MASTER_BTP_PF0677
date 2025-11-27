@@ -31,6 +31,7 @@ annotate entity ZHEADER_C_0677
                 type: #LINEITEM_REFERENCE,
                 targetElement: '_Items'
              }]
+             
   @UI.hidden: true
   OrderUUID;
 
@@ -59,7 +60,7 @@ annotate entity ZHEADER_C_0677
                              position: 20 }         
          ],
          
-         selectionField: [{ position: 10 }] }             
+          selectionField: [{ position: 10 }] }             
   OrderID;
 
   @UI: { lineItem: [{  position:  40, importance:  #MEDIUM}],
@@ -87,14 +88,14 @@ annotate entity ZHEADER_C_0677
   CreateOn;  
   
   @UI: { lineItem: [{  position:  60, importance:  #MEDIUM}],
-     identification: [{ position: 60 }],
-     selectionField: [{ position: 50 }] }
+     identification: [{ position: 60 }] ,
+    selectionField: [{ position: 50 }] }
   DeliveryDate;
    
   @UI: { lineItem: [{  position:  70, importance:  #MEDIUM}],
          identification: [{ position: 70 }],
-         selectionField: [{ position: 60 }]
-        // textArrangement: #TEXT_ONLY 
+         selectionField: [{ position: 60 }],
+         textArrangement: #TEXT_ONLY 
         }
   OrderStatus;
 
