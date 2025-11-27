@@ -21,7 +21,7 @@ as projection on ZHEADER_R_0677
       LastName,
       
       @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CountryVH',
-                                      element: 'Country' },
+                                      element: 'Country' },                                                                                 
                             useForValidation: true }] 
       @ObjectModel.text.element: [ 'CountryName' ]                           
       Country, 
